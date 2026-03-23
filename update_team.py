@@ -87,8 +87,6 @@ if g_team_members.totalCount != g_org_members.totalCount:
         # Check if the user is a member...
         if not g_team.has_in_members(g_org_member):
             users_to_add.add(g_org_member)
-            # for privacy reasons we do not print all users to be added, but you can uncomment the line below to see them all
-            # print(f"{g_org_member.login} should be added!")
 
         # Check if we have identified all missing users
         if diff == len(users_to_add):
@@ -100,11 +98,13 @@ if g_team_members.totalCount != g_org_members.totalCount:
     # Adding missing members to team
     for user in users_to_add:
         try:
-            # g_team.add_to_members(user) 
+            g_team.add_to_members(user) 
             # for privacy reasons we do not print all users that are added, but you can uncomment the line below to see them all
             # print(f"{user.login} has been added!")
+            print(f"A user has been added!")
+            
         except github.GithubException as e:
-            print(f"Error adding {user.login}: {e}")
+            print(f"Error adding the user: {e}")
 
 else:
     print("No users missing! All up-to-date.")
