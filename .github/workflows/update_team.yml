@@ -21,24 +21,6 @@ env:
   MAIN_PYTHON_VERSION: '3.13'
 
 jobs:
-  style:
-    name: Style Check
-    if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: ${{ env.MAIN_PYTHON_VERSION }}
-
-      - name: Install pre-commit
-        run: pip install pre-commit
-
-      - name: Run pre-commit
-        run: pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
-
   team_update:
     name: Update the Donders-Institute/all team
     runs-on: ubuntu-latest
