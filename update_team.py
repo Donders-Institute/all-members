@@ -36,7 +36,7 @@ import github
 # =============================================================================
 
 # Insert your credentials... None by default
-MY_PAT = "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"
+MY_PAT = None
 
 # Select the org you want to access
 MY_ORG = "Donders-Institute"
