@@ -39,6 +39,6 @@ jobs:
 
       - name: Update the team members
         env:
-          TOKEN: ${{ secrets.UPDATE_ALL_MEMBERS }}
+          TOKEN: ${{ secrets.UPDATE_TEAM }}
         run: |
           python update_team.py
