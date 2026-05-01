@@ -58,7 +58,8 @@ else:
     print(f"Using PAT {MY_PAT}")
 
 # Create a connection to GitHub
-g = github.Github(MY_PAT)
+auth = github.Auth.Token(MY_PAT)
+g = github.Github(auth=auth)
 
 # Let us get the org
 g_org = g.get_organization(MY_ORG)
