@@ -35,7 +35,7 @@ import github
 # =============================================================================
 
 # Insert your credentials... None by default
-MY_PAT = None
+MY_TOKEN = None
 
 # Select the org you want to access
 MY_ORG = "Donders-Institute"
@@ -44,21 +44,21 @@ MY_ORG = "Donders-Institute"
 # MODIFY WITH CAUTION FROM THIS POINT ONWARDS
 # =============================================================================
 
-# Check if a value for PAT was provided
-if MY_PAT is None:
+# Check if a value for TOKEN was provided
+if MY_TOKEN is None:
     # This probably means that we are updating the team automatically using our
     # GitHub action: Team Update... let us read the GitHub Token
     print("Reading access token from 'TOKEN' environment variable...")
-    MY_PAT = os.environ.get("TOKEN", default=None)
+    MY_TOKEN = os.environ.get("TOKEN", default=None)
 
-# If the value for PAT is still None... throw error!
-if MY_PAT is None:
-    raise ValueError("No PAT value available. Consider adding it.")
+# If the value for TOKEN is still None... throw error!
+if MY_TOKEN is None:
+    raise ValueError("No TOKEN value available. Consider adding it.")
 else:
-    print(f"Using PAT {MY_PAT}")
+    print("Using TOKEN value provided...")
 
 # Create a connection to GitHub
-auth = github.Auth.Token(MY_PAT)
+auth = github.Auth.Token(MY_TOKEN)
 g = github.Github(auth=auth)
 
 # Let us get the org
