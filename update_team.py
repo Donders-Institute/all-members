@@ -55,7 +55,7 @@ if MY_PAT is None:
 if MY_PAT is None:
     raise ValueError("No PAT value available. Consider adding it.")
 else:
-    print("Using PAT {MY_PAT}")
+    print(f"Using PAT {MY_PAT}")
 
 # Create a connection to GitHub
 g = github.Github(MY_PAT)
